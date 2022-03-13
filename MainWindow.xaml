@@ -1,0 +1,97 @@
+﻿<Window x:Class="_1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="550" Width="900">
+    <Grid Background= "CadetBlue">
+        <ListView Margin="0,0,495,237" x:Name="ClientsList">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn x:Name="IDc" Header="ID клиента" Width="60" DisplayMemberBinding="{Binding Path=IDc}"/>
+                    <GridViewColumn x:Name="SecondName" Header="Фамилия" Width="120" DisplayMemberBinding="{Binding Path=LastName}"/>
+                    <GridViewColumn x:Name="FirstName" Header="Имя" Width="100" DisplayMemberBinding="{Binding Path=FirstName}"/>
+                    <GridViewColumn x:Name="Patronymic" Header="Отчество" Width="120" DisplayMemberBinding="{Binding Path=Patronymic}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ListView Margin="431,0,0,267" x:Name="AccountsList">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn x:Name="ID" Header="ID клиента" Width="70" DisplayMemberBinding="{Binding Path=ID}"/>
+                    <GridViewColumn x:Name="Number" Header="Номер счёта" Width="120" DisplayMemberBinding="{Binding Path=Number}"/>
+                    <GridViewColumn x:Name="Amount" Header="Средства" Width="80" DisplayMemberBinding="{Binding Path=Amount}"/>
+                    <GridViewColumn x:Name="Status" Header="Статус" Width="80" DisplayMemberBinding="{Binding Path=Status}"/>
+                    <GridViewColumn x:Name="Type" Header="Тип" Width="80" DisplayMemberBinding="{Binding Path=Type}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="btn_AddAccount" Content="Открыть новый счёт" 
+                HorizontalAlignment="Left" 
+                Margin="124,322,0,0" 
+                VerticalAlignment="Top" 
+                Height="32" Width="142" Click="btn_AddAccount_Click"/>
+        <Button x:Name="btn_Close" Content="Закрыть счёт" 
+                HorizontalAlignment="Left" 
+                Margin="124,369,0,0" 
+                VerticalAlignment="Top" 
+                Height="32" Width="142" Click="btn_Close_Click"/>
+        <TextBlock HorizontalAlignment="Left" 
+                   Margin="644,287,0,0" 
+                   Text="Перевод" 
+                   TextWrapping="Wrap" 
+                   VerticalAlignment="Top"
+                   Background="White"
+                   FontSize="15" Height="26" Width="62"/>
+        <TextBlock HorizontalAlignment="Left" 
+                   Margin="522,338,0,0" 
+                   Text="С какого счёта:" 
+                   TextWrapping="Wrap" 
+                   VerticalAlignment="Top"
+                   Background="White"/>
+        <TextBlock HorizontalAlignment="Left"
+                   Margin="522,385,0,0" 
+                   Text="На какой:" 
+                   TextWrapping="Wrap" 
+                   VerticalAlignment="Top"
+                   Background="White" Width="83"/>
+        <ComboBox DisplayMemberPath="{Binding Path=Number}"
+                  x:Name="cb_From" 
+                  HorizontalAlignment="Left" 
+                  Margin="628,335,0,0" 
+                  VerticalAlignment="Top" 
+                  Width="120"/>
+        <ComboBox x:Name="cb_To" HorizontalAlignment="Left" 
+                  DisplayMemberPath="{Binding Path=Number}"
+                  Margin="628,382,0,0" 
+                  VerticalAlignment="Top"
+                  Width="120"/>
+        <Button x:Name="btn_Trasfer" Content="Перевести" 
+                HorizontalAlignment="Left" 
+                Margin="597,465,0,0" 
+                VerticalAlignment="Top" Click="btn_Trasfer_Click"/>
+        <TextBlock HorizontalAlignment="Left" 
+                   Margin="522,427,0,0" 
+                   Text="Сколько:" 
+                   TextWrapping="Wrap" 
+                   VerticalAlignment="Top"
+                   Background="White" Width="83"/>
+        <TextBox x:Name="tx_Amount" HorizontalAlignment="Left" 
+                 Margin="628,427,0,0"  
+                 TextWrapping="Wrap" 
+                 VerticalAlignment="Top" 
+                 Width="120"/>
+        <Button x:Name="btn_TopUpD" Content="Пополнить счёт" 
+                HorizontalAlignment="Left" 
+                Margin="106,414,0,0" 
+                VerticalAlignment="Top"
+                Height="32" Width="178" Click="btn_TopUpD_Click"/>
+        <Button  x:Name="btn_Log" Content="Журнал действий"
+                HorizontalAlignment="Left" 
+                Margin="106,459,0,0" 
+                VerticalAlignment="Top"
+                Height="32" Width="178" Click="btn_Log_Click"/>
+    </Grid>
+</Window>
